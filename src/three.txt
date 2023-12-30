@@ -1,0 +1,16 @@
+npm create vite@latest
+--> React
+--> Javascript
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+Codigo para index.css: https://gist.github.com/adrianhajdin/7bc0603ee0b1bd2872b80a62c24b5e5f
+Tambien dentro esta el codigo de tailwind.config.js
+npm i react-router-dom
+npm i @react-three/fiber --> Libreria 3D para React, sirve para renderizar objetos en 3D
+https://docs.pmnd.rs/react-three-fiber/getting-started/introduction --> Introduction in Fiber
+drei = Coleccion de helpers y ayudas funcionales para three/fiber. Ayuda con cámaras, controles...
+npm i @react-three/drei
+Como repositorio de modelos 3D usaremos SketchFab, una web donde los podremos descargar
+https://gltf.pmnd.rs/ --> Convierte el render en un componente de React
+@react-spring/three --> Paquete para habilitar animaciones, importamos
+import { a } from '@react-spring/three';
