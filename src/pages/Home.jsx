@@ -18,6 +18,7 @@ import Plane from "../models/Plane";
 }
 const Home = () => {
   const [isRotating, setIsRotating] = useState(false);
+  const [currentStage, setCurrentStage] = useState(1);
   // Ajustamnos el tamaño de la isla dependiendo del tamaño de la pantalla
   const adjustIslandForScreenSize = () => {
     let screenScale = null;
@@ -36,7 +37,8 @@ const Home = () => {
     // Ajustamnos el tamaño del avion dependiendo del tamaño de la pantalla
     const adjustPlaneForScreenSize = () => {
       let screenScale, screenPosition;
-  
+
+      // If screen width is less than 768px, adjust the scale and position
       if (window.innerWidth < 768) {
         screenScale = [1.5, 1.5, 1.5];
         screenPosition = [0, -1.5, 0];
@@ -45,7 +47,7 @@ const Home = () => {
         screenPosition = [0, -4, -4];
       }
   
-      return [screenScale, screenPosition, rotation];
+      return [screenScale, screenPosition];
     };
 
   const [islandScale, islandPosition, rotation] = adjustIslandForScreenSize();
@@ -81,11 +83,14 @@ const Home = () => {
             rotation={[0,20,0]}
           ></Plane>
           <Bird></Bird>
-          <Sky></Sky>
+          <Sky
+            isRotating={isRotating}
+          ></Sky>
           <Island
             position={islandPosition}
             scale={islandScale}
             rotation={rotation}
+            setCurrentStage={setCurrentStage}
             isRotating={isRotating}
             setIsRotating={setIsRotating}
           />
