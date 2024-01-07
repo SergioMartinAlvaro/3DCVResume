@@ -5,6 +5,7 @@ import Island from "../models/Island";
 import Sky from "../models/Sky";
 import Bird from "../models/Bird";
 import Plane from "../models/Plane";
+import HomeInfo from "../components/HomeInfo";
 
 {
   /**
@@ -55,6 +56,9 @@ const Home = () => {
 
   return (
     <section className="w-full h-screen relative">
+      <div className="absolute top-28 left-0 right-0 z-10 flex items-center justify-center">
+        {currentStage && <HomeInfo currentStage={currentStage} />}
+      </div>
       <Canvas
         className={`w-full h-screen bg-transparent ${isRotating ? 'cursor-grabbing' : 'cursor-grab'}`}
         camera={{ near: 0.1, far: 1000 }}
@@ -76,12 +80,6 @@ const Home = () => {
             groundColor="#000000"
             intensity={1}
           />
-          <Plane
-            isRotating={isRotating}
-            planeScale={planeScale}
-            planePosition={planePosition}
-            rotation={[0,20,0]}
-          ></Plane>
           <Bird></Bird>
           <Sky
             isRotating={isRotating}
@@ -93,8 +91,13 @@ const Home = () => {
             setCurrentStage={setCurrentStage}
             isRotating={isRotating}
             setIsRotating={setIsRotating}
-          />
-          <Plane />
+          />          
+          <Plane
+          isRotating={isRotating}
+          position={planePosition}
+          rotation={[0, 20.1, 0]}
+          scale={planeScale}
+        />
         </Suspense>
       </Canvas>
     </section>
