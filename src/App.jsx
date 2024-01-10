@@ -4,8 +4,8 @@ import {Home, About, Projects, Contact} from './pages';
 
 const App = () => {
   return (
-   <main className='bg-slate-300/20'>
-    <h1 className="text-3xl font-bold underline text-red-500">
+   <main className='bg-slate-300/20 h-[100vh]'>
+    <h1 className="">
         <Router>
             <Navbar></Navbar>
             <Routes>
