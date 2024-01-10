@@ -1,0 +1,5 @@
+{
+    "output": {
+      "app": "./dist" // Reemplaza con tu carpeta de artefactos
+    }
+  }
